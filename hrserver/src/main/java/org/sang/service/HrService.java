@@ -3,7 +3,6 @@ package org.sang.service;
 import org.sang.bean.Hr;
 import org.sang.common.HrUtils;
 import org.sang.mapper.HrMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,7 +20,7 @@ import java.util.List;
 @Transactional
 public class HrService implements UserDetailsService {
 
-    @Autowired
+    @Resource
     HrMapper hrMapper;
 
     @Override
@@ -66,6 +66,7 @@ public class HrService implements UserDetailsService {
     public List<Hr> getAllHrExceptAdmin() {
         return hrMapper.getAllHr(HrUtils.getCurrentHr().getId());
     }
+
     public List<Hr> getAllHr() {
         return hrMapper.getAllHr(null);
     }

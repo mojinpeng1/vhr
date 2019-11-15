@@ -1,10 +1,10 @@
 package org.sang.service;
 
 import org.sang.mapper.SystemMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 /**
  * Created by sang on 2017/12/29.
@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class SystemService {
-    @Autowired
+    @Resource
     SystemMapper systemMapper;
 
 }

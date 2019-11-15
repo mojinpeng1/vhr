@@ -4,19 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.sang.mapper.SalaryMapper">
     <insert id="addSalary" parameterType="org.sang.bean.Salary">
-            insert into salary (bonus, lunchSalary,
-      trafficSalary, basicSalary,
-      pensionBase, pensionPer, createDate,
-      medicalBase, medicalPer, accumulationFundBase,
-      accumulationFundPer, name)
-    values (#{salary.bonus,jdbcType=INTEGER}, #{salary.lunchSalary,jdbcType=INTEGER},
-      #{salary.trafficSalary,jdbcType=INTEGER}, #{salary.basicSalary,jdbcType=INTEGER},
-      #{salary.pensionBase,jdbcType=INTEGER}, #{salary.pensionPer,jdbcType=REAL}, #{salary.createDate,jdbcType=TIMESTAMP},
-      #{salary.medicalBase,jdbcType=INTEGER}, #{salary.medicalPer,jdbcType=REAL}, #{salary.accumulationFundBase,jdbcType=INTEGER},
-      #{salary.accumulationFundPer,jdbcType=REAL}, #{salary.name,jdbcType=VARCHAR})
+        insert into salary (bonus, lunchSalary,
+                            trafficSalary, basicSalary,
+                            pensionBase, pensionPer, createDate,
+                            medicalBase, medicalPer, accumulationFundBase,
+                            accumulationFundPer, name)
+        values (#{salary.bonus,jdbcType=INTEGER}, #{salary.lunchSalary,jdbcType=INTEGER},
+                #{salary.trafficSalary,jdbcType=INTEGER}, #{salary.basicSalary,jdbcType=INTEGER},
+                #{salary.pensionBase,jdbcType=INTEGER}, #{salary.pensionPer,jdbcType=REAL},
+                #{salary.createDate,jdbcType=TIMESTAMP},
+                #{salary.medicalBase,jdbcType=INTEGER}, #{salary.medicalPer,jdbcType=REAL},
+                #{salary.accumulationFundBase,jdbcType=INTEGER},
+                #{salary.accumulationFundPer,jdbcType=REAL}, #{salary.name,jdbcType=VARCHAR})
     </insert>
     <select id="getAllSalary" resultType="org.sang.bean.Salary">
-        SELECT * FROM salary;
+        SELECT *
+        FROM salary;
     </select>
     <update id="updateSalary" parameterType="org.sang.bean.Salary">
         update salary
@@ -70,9 +73,16 @@
         </foreach>
     </delete>
     <delete id="deleteSalaryByEid">
-        DELETE FROM empsalary WHERE eid=#{eid}
+        DELETE
+        FROM empsalary
+        WHERE eid = #{eid}
     </delete>
     <insert id="addSidAndEid">
-        INSERT INTO empsalary set eid=#{eid},sid=#{sid}
+        INSERT INTO empsalary
+        set eid
+            =
+            #{eid},
+            sid=
+            #{sid}
     </insert>
 </mapper>

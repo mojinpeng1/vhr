@@ -5,12 +5,12 @@ import org.sang.bean.RespBean;
 import org.sang.bean.Role;
 import org.sang.service.HrService;
 import org.sang.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,9 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/system/hr")
 public class SystemHrController {
-    @Autowired
+    @Resource
     HrService hrService;
-    @Autowired
+    @Resource
     RoleService roleService;
 
     @RequestMapping("/id/{hrId}")
@@ -59,7 +59,7 @@ public class SystemHrController {
         return hrs;
     }
 
-    @RequestMapping(value = "/roles",method = RequestMethod.GET)
+    @RequestMapping(value = "/roles", method = RequestMethod.GET)
     public List<Role> allRoles() {
         return roleService.roles();
     }

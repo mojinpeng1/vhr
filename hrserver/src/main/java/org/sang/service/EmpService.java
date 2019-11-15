@@ -4,10 +4,10 @@ import org.sang.bean.Employee;
 import org.sang.bean.Nation;
 import org.sang.bean.PoliticsStatus;
 import org.sang.mapper.EmpMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 @Transactional
 public class EmpService {
-    @Autowired
+    @Resource
     EmpMapper empMapper;
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
@@ -100,6 +100,6 @@ public class EmpService {
 
     public List<Employee> getEmployeeByPageShort(Integer page, Integer size) {
         int start = (page - 1) * size;
-        return empMapper.getEmployeeByPageShort(start,size);
+        return empMapper.getEmployeeByPageShort(start, size);
     }
 }

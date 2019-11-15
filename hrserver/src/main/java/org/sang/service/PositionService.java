@@ -1,12 +1,11 @@
 package org.sang.service;
 
-import org.sang.bean.JobLevel;
 import org.sang.bean.Position;
 import org.sang.mapper.PositionMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,7 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class PositionService {
-    @Autowired
+    @Resource
     PositionMapper positionMapper;
 
     public int addPos(Position pos) {

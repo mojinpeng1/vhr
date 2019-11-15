@@ -1,12 +1,12 @@
 package org.sang.controller;
 
 import org.sang.bean.ChatResp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.Resource;
 import java.security.Principal;
 
 /**
@@ -15,7 +15,7 @@ import java.security.Principal;
  */
 @Controller
 public class WsController {
-    @Autowired
+    @Resource
     SimpMessagingTemplate messagingTemplate;
 
     @MessageMapping("/ws/chat")

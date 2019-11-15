@@ -2,10 +2,10 @@ package org.sang.service;
 
 import org.sang.bean.Role;
 import org.sang.mapper.RoleMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class RoleService {
-    @Autowired
+    @Resource
     RoleMapper roleMapper;
 
     public List<Role> roles() {

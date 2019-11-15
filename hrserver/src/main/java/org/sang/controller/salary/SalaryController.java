@@ -4,12 +4,12 @@ import org.sang.bean.RespBean;
 import org.sang.bean.Salary;
 import org.sang.service.EmpService;
 import org.sang.service.SalaryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,9 +18,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/salary/sob")
 public class SalaryController {
-    @Autowired
+    @Resource
     SalaryService salaryService;
-    @Autowired
+    @Resource
     EmpService empService;
 
     @RequestMapping(value = "/salary", method = RequestMethod.POST)

@@ -6,12 +6,12 @@ import org.sang.bean.RespBean;
 import org.sang.bean.SysMsg;
 import org.sang.service.HrService;
 import org.sang.service.SysMsgService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,9 +21,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
-    @Autowired
+    @Resource
     HrService hrService;
-    @Autowired
+    @Resource
     SysMsgService sysMsgService;
 
     @RequestMapping(value = "/hrs", method = RequestMethod.GET)

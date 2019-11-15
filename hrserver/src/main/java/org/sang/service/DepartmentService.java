@@ -2,13 +2,11 @@ package org.sang.service;
 
 import org.sang.bean.Department;
 import org.sang.mapper.DepartmentMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
+import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by sang on 2018/1/7.
@@ -16,8 +14,10 @@ import java.util.Map;
 @Service
 @Transactional
 public class DepartmentService {
-    @Autowired
+
+    @Resource
     DepartmentMapper departmentMapper;
+
     public int addDep(Department department) {
         department.setEnabled(true);
         departmentMapper.addDep(department);

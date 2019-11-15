@@ -20,12 +20,13 @@ public class EmailRunnable implements Runnable {
 
     public EmailRunnable(Employee employee,
                          JavaMailSender javaMailSender,
-                         TemplateEngine templateEngine,String emailAddress) {
+                         TemplateEngine templateEngine, String emailAddress) {
         this.employee = employee;
         this.javaMailSender = javaMailSender;
         this.templateEngine = templateEngine;
         this.emailAddress = emailAddress;
     }
+
     @Override
     public void run() {
         try {

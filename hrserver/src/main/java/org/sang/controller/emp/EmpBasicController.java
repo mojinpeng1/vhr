@@ -9,7 +9,6 @@ import org.sang.service.DepartmentService;
 import org.sang.service.EmpService;
 import org.sang.service.JobLevelService;
 import org.sang.service.PositionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.TemplateEngine;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,19 +28,19 @@ import java.util.concurrent.ExecutorService;
 @RestController
 @RequestMapping("/employee/basic")
 public class EmpBasicController {
-    @Autowired
+    @Resource
     EmpService empService;
-    @Autowired
+    @Resource
     DepartmentService departmentService;
-    @Autowired
+    @Resource
     PositionService positionService;
-    @Autowired
+    @Resource
     JobLevelService jobLevelService;
-    @Autowired
+    @Resource
     ExecutorService executorService;
-    @Autowired
+    @Resource
     TemplateEngine templateEngine;
-    @Autowired
+    @Resource
     JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     String emailAddress;
@@ -72,7 +72,7 @@ public class EmpBasicController {
                 }
             }
             executorService.execute(new EmailRunnable(employee,
-                    javaMailSender, templateEngine,emailAddress));
+                    javaMailSender, templateEngine, emailAddress));
             return RespBean.ok("添加成功!");
         }
         return RespBean.error("添加失败!");
@@ -104,10 +104,10 @@ public class EmpBasicController {
             Long departmentId, String beginDateScope) {
         Map<String, Object> map = new HashMap<>();
         List<Employee> employeeByPage = empService.getEmployeeByPage(page, size,
-                keywords,politicId, nationId, posId, jobLevelId, engageForm,
+                keywords, politicId, nationId, posId, jobLevelId, engageForm,
                 departmentId, beginDateScope);
         Long count = empService.getCountByKeywords(keywords, politicId, nationId,
-                posId,jobLevelId, engageForm, departmentId, beginDateScope);
+                posId, jobLevelId, engageForm, departmentId, beginDateScope);
         map.put("emps", employeeByPage);
         map.put("count", count);
         return map;

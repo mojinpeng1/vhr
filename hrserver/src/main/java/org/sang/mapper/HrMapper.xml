@@ -27,13 +27,24 @@
         </collection>
     </resultMap>
     <select id="loadUserByUsername" resultMap="lazyLoadRoles">
-        select * from hr WHERE username=#{username};
+        select *
+        from hr
+        WHERE username = #{username};
     </select>
     <select id="getRolesByHrId" resultType="org.sang.bean.Role">
-        SELECT r.* FROM hr_role h,role r where h.rid=r.id AND h.hrid=#{id}
+        SELECT r.*
+        FROM hr_role h,
+             role r
+        where h.rid = r.id
+          AND h.hrid = #{id}
     </select>
     <insert id="hrReg">
-        INSERT INTO hr set username=#{username},password=#{password}
+        INSERT INTO hr
+        set username
+            =
+            #{username},
+            password=
+            #{password}
     </insert>
     <select id="getHrsByKeywords" resultMap="eagerLoadRoles">
         select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`hr` `h` left join `hr_role`
@@ -45,8 +56,11 @@
         order by h.`id` limit 10
     </select>
     <select id="getHrById" resultMap="eagerLoadRoles">
-        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`hr` `h` left join `hr_role`
-        `h_r` on ((`h`.`id` = `h_r`.`hrid`))) left join `role` `r` on ((`h_r`.`rid` = `r`.`id`))) where h.`id`=#{hrId}
+        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh`
+        from ((`hr` `h` left join `hr_role`
+            `h_r` on ((`h`.`id` = `h_r`.`hrid`)))
+                 left join `role` `r` on ((`h_r`.`rid` = `r`.`id`)))
+        where h.`id` = #{hrId}
     </select>
     <update id="updateHr" parameterType="org.sang.bean.Hr">
         update hr
@@ -82,7 +96,9 @@
         where id = #{id}
     </update>
     <delete id="deleteRoleByHrId" parameterType="Long">
-        DELETE FROM hr_role where hrid=#{hrId}
+        DELETE
+        FROM hr_role
+        where hrid = #{hrId}
     </delete>
     <insert id="addRolesForHr">
         INSERT INTO hr_role(hrid,rid) VALUES
@@ -91,7 +107,9 @@
         </foreach>
     </insert>
     <delete id="deleteHr" parameterType="Long">
-        DELETE FROM hr WHERE id=#{hrId}
+        DELETE
+        FROM hr
+        WHERE id = #{hrId}
     </delete>
     <select id="getAllHr" resultType="org.sang.bean.Hr">
         select * from hr

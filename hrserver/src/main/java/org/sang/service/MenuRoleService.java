@@ -1,10 +1,10 @@
 package org.sang.service;
 
-import org.apache.ibatis.annotations.Param;
 import org.sang.mapper.MenuRoleMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 /**
  * Created by sang on 2018/1/2.
@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class MenuRoleService {
-    @Autowired
+    @Resource
     MenuRoleMapper menuRoleMapper;
 
     public int updateMenuRole(Long rid, Long[] mids) {

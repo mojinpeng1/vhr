@@ -2,12 +2,12 @@ package org.sang.controller.system;
 
 import org.sang.bean.*;
 import org.sang.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,17 +18,17 @@ import java.util.Map;
 @RestController
 @RequestMapping("/system/basic")
 public class SystemBasicController {
-    @Autowired
+    @Resource
     RoleService roleService;
-    @Autowired
+    @Resource
     MenuService menuService;
-    @Autowired
+    @Resource
     MenuRoleService menuRoleService;
-    @Autowired
+    @Resource
     DepartmentService departmentService;
-    @Autowired
+    @Resource
     PositionService positionService;
-    @Autowired
+    @Resource
     JobLevelService jobLevelService;
 
     @RequestMapping(value = "/role/{rid}", method = RequestMethod.DELETE)

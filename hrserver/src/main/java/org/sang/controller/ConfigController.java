@@ -4,10 +4,10 @@ import org.sang.bean.Hr;
 import org.sang.bean.Menu;
 import org.sang.common.HrUtils;
 import org.sang.service.MenuService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,8 +17,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/config")
 public class ConfigController {
-    @Autowired
+    @Resource
     MenuService menuService;
+
     @RequestMapping("/sysmenu")
     public List<Menu> sysmenu() {
         return menuService.getMenusByHrId();

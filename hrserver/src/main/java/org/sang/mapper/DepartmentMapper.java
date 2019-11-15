@@ -1,5 +1,6 @@
 package org.sang.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.sang.bean.Department;
 
@@ -7,7 +8,10 @@ import java.util.List;
 
 /**
  * Created by sang on 2018/1/7.
+ *
+ * @author 莫进朋
  */
+@Mapper
 public interface DepartmentMapper {
     void addDep(@Param("dep") Department department);
 

@@ -16,7 +16,7 @@ public interface SysMsgMapper {
 
     int addMsg2AllHr(@Param("hrs") List<Hr> hrs, @Param("mid") Long mid);
 
-    List<SysMsg> getSysMsg(@Param("start") int start, @Param("size") Integer size,@Param("hrid") Long hrid);
+    List<SysMsg> getSysMsg(@Param("start") int start, @Param("size") Integer size, @Param("hrid") Long hrid);
 
     int markRead(@Param("flag") Long flag, @Param("hrid") Long hrid);
 }
