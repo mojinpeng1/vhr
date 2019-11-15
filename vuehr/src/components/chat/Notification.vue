@@ -8,7 +8,7 @@
           style="margin-right: 15px"></i>发送系统通知
         </el-button>
       </el-header>
-      <el-main style="padding: 0px;">
+      <el-main style="padding: 0;">
         <el-collapse accordion style="width: 90%" @change="handleChange" v-model="mid">
           <el-collapse-item v-for="(msg,index) in sysmsgs" :key="index" :name="msg.msgContent.id">
             <template slot="title">
